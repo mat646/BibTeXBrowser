@@ -7,3 +7,7 @@ public class FileParser {
     }
 
 }
+
+class Tokenizer {
+
+}

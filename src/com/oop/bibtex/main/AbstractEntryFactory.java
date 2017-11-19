@@ -3,6 +3,6 @@ package com.oop.bibtex.main;
 public interface AbstractEntryFactory {
 }
 
-class BookFactory {
+class BookFactory implements AbstractEntryFactory {
 
 }
