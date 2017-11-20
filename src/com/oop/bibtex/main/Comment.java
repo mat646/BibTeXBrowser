@@ -2,7 +2,7 @@ package com.oop.bibtex.main;
 
 public class Comment implements BibTeXEntity {
     @Override
-    public void accept() {
-
+    public void accept(IFileVisitor visitor) {
+        visitor.visit(this);
     }
 }
