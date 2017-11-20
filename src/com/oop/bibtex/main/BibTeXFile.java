@@ -1,11 +1,11 @@
 package com.oop.bibtex.main;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BibTeXFile implements BibTeXEntity {
 
-    Map<String, BibTeXEntity> elements = new HashMap<>();
+    Set<BibTeXEntity> elements = new HashSet<>();
 
     public BibTeXFile() {
 
@@ -13,7 +13,7 @@ public class BibTeXFile implements BibTeXEntity {
 
     @Override
     public void accept(IFileVisitor visitor) {
-        for (BibTeXEntity bibTeXEntity : elements.values()) {
+        for (BibTeXEntity bibTeXEntity : elements) {
             bibTeXEntity.accept(visitor);
         }
 
@@ -21,6 +21,6 @@ public class BibTeXFile implements BibTeXEntity {
     }
 
     public void put(String key, BibTeXEntity bibTeXEntity) {
-        elements.put(key, bibTeXEntity);
+        elements.add(bibTeXEntity);
     }
 }

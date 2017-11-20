@@ -1,5 +1,7 @@
 package com.oop.bibtex.main;
 
+import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
+
 import java.io.IOException;
 
 public class Main {
