@@ -9,7 +9,7 @@ import static com.oop.bibtex.main.Attributes.*;
 public class Book extends Entry {
 
     public static final Attributes[] requiredFields = {EDITOR, TITLE, PUBLISHER, YEAR};
-    public static final Attributes[] optionalFields = {};
+    public static final Attributes[] optionalFields = {VOLUME, SERIES, ADDRESS, EDITION, MONTH, NOTE, KEY};
 
     public Book(Map<Attributes, String> records) {
         super(records);

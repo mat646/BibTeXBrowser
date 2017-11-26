@@ -4,11 +4,12 @@ import com.oop.bibtex.main.Attributes;
 import com.oop.bibtex.main.Entry;
 import com.oop.bibtex.main.IFileVisitor;
 import java.util.Map;
+import static com.oop.bibtex.main.Attributes.*;
 
 public class Unpublished extends Entry {
 
-    public static final String[] requiredFields = {};
-    public static final String[] optionalFields = {};
+    public static final Attributes[] requiredFields = {AUTHOR, TITLE, NOTE};
+    public static final Attributes[] optionalFields = {MONTH, YEAR, KEY};
 
     public Unpublished(Map<Attributes, String> records) {
         super(records);

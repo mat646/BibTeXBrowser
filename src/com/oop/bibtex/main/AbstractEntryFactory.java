@@ -5,15 +5,13 @@ import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
 import java.util.Map;
 import static com.oop.bibtex.main.Attributes.*;
 
-public interface AbstractEntryFactory {
-
-    //public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException;
+interface AbstractEntryFactory {
 
 }
 
 class ArticleFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(JOURNAL) != null && records.get(YEAR) != null) {
@@ -26,7 +24,7 @@ class ArticleFactory implements AbstractEntryFactory {
 
 class BookFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
 
         if ((records.get(AUTHOR) != null || records.get(EDITOR) != null) &&
                 records.get(TITLE) != null && records.get(PUBLISHER) != null &&

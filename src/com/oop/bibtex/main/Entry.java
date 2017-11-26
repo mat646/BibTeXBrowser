@@ -14,6 +14,6 @@ public abstract class Entry implements BibTeXEntity {
     }
 
     public String getKey() {
-        return records.get("key");
+        return null;
     }
 }
