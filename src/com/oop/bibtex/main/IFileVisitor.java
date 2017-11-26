@@ -33,6 +33,22 @@ class BasicFileVisitor implements IFileVisitor {
         this.symbol = symbol;
     }
 
+    void basicPrint(Entry entry) {
+        for (Attributes elem : Article.requiredFields) {
+            String value = entry.records.get(elem);
+            if (value != null) {
+                System.out.println(elem + ": " + value);
+            }
+        }
+
+        for (Attributes elem : Article.optionalFields) {
+            String value = entry.records.get(elem);
+            if (value != null) {
+                System.out.println(elem + ": " + value);
+            }
+        }
+    }
+
     @Override
     public void visit(BibTeXFile bibTeXFile) {
 

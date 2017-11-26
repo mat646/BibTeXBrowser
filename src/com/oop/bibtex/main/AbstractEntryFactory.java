@@ -1,46 +1,195 @@
 package com.oop.bibtex.main;
 
-import com.oop.bibtex.main.entries.Article;
-import com.oop.bibtex.main.entries.Book;
-import com.oop.bibtex.main.entries.Booklet;
+import com.oop.bibtex.main.entries.*;
 import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
 import java.util.Map;
+import static com.oop.bibtex.main.Attributes.*;
 
 public interface AbstractEntryFactory {
 
-    public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException;
+    //public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException;
 
 }
 
 class ArticleFactory implements AbstractEntryFactory {
 
-    @Override
-    public BibTeXEntity createEntity(Map<Attributes, String> records) {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
 
-        //TODO check required and optional
-
-        return new Article(records);
+        if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
+                records.get(JOURNAL) != null && records.get(YEAR) != null) {
+            return new Article(records);
+        } else {
+            throw new IncompleteFieldsException("Article");
+        }
     }
 }
 
 class BookFactory implements AbstractEntryFactory {
 
-    @Override
-    public BibTeXEntity createEntity(Map<Attributes, String> records) {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
 
-        //TODO check required and optional
-
-        return new Book(records);
+        if ((records.get(AUTHOR) != null || records.get(EDITOR) != null) &&
+                records.get(TITLE) != null && records.get(PUBLISHER) != null &&
+                records.get(YEAR) != null) {
+            return new Book(records);
+        } else {
+            throw new IncompleteFieldsException("Book");
+        }
     }
 }
 
 class BookletFactory implements AbstractEntryFactory {
 
-    @Override
-    public BibTeXEntity createEntity(Map<Attributes, String> records) {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
 
-        //TODO check required and optional
+        if (records.get(TITLE) != null) {
+            return new Booklet(records);
+        } else {
+            throw new IncompleteFieldsException("Booklet");
+        }
+    }
+}
 
-        return new Booklet(records);
+class ConferenceFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
+                records.get(BOOKTITLE) != null && records.get(YEAR) != null) {
+            return new Conference(records);
+        } else {
+            throw new IncompleteFieldsException("Conference");
+        }
+
+    }
+}
+
+class InBookFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if ((records.get(AUTHOR) != null || records.get(EDITOR) != null) && records.get(TITLE) != null &&
+                (records.get(CHAPTER) != null || records.get(PAGES) != null) &&
+                records.get(PUBLISHER) != null && records.get(YEAR) != null) {
+            return new InBook(records);
+        } else {
+            throw new IncompleteFieldsException("InBook");
+        }
+
+    }
+}
+
+class InCollectionFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(AUTHOR) != null && records.get(BOOKTITLE) != null &&
+                records.get(TITLE) != null && records.get(PUBLISHER) != null &&
+                records.get(YEAR) != null) {
+            return new InCollection(records);
+        } else {
+            throw new IncompleteFieldsException("InCollection");
+        }
+    }
+}
+
+class InProceedingsFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
+                records.get(BOOKTITLE) != null && records.get(YEAR) != null) {
+            return new InProceedings(records);
+        } else {
+            throw new IncompleteFieldsException("InProceedings");
+        }
+    }
+}
+
+class ManualFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(TITLE) != null) {
+            return new Manual(records);
+        } else {
+            throw new IncompleteFieldsException("Manual");
+        }
+    }
+}
+
+class MasterThesisFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
+                records.get(SCHOOL) != null && records.get(YEAR) != null) {
+            return new MasterThesis(records);
+        } else {
+            throw new IncompleteFieldsException("MasterThesis");
+        }
+    }
+}
+
+class MiscFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records != null) {
+            return new Misc(records);
+        } else {
+            throw new IncompleteFieldsException("Misc");
+        }
+    }
+}
+
+class PhdThesisFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
+                records.get(SCHOOL) != null && records.get(YEAR) != null) {
+            return new PhdThesis(records);
+        } else {
+            throw new IncompleteFieldsException("PhdThesis");
+        }
+    }
+}
+
+class ProceedingsFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(TITLE) != null && records.get(YEAR) != null) {
+            return new Proceedings(records);
+        } else {
+            throw new IncompleteFieldsException("Proceedings");
+        }
+    }
+}
+
+class TechReportFactory implements AbstractEntryFactory {
+
+    static public TechReport createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
+                records.get(INSTITUTION) != null && records.get(YEAR) != null) {
+            return new TechReport(records);
+        } else {
+            throw new IncompleteFieldsException("TechReport");
+        }
+    }
+}
+
+class UnpublishedFactory implements AbstractEntryFactory {
+
+    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+
+        if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
+                records.get(NOTE) != null) {
+            return new Unpublished(records);
+        } else {
+            throw new IncompleteFieldsException("Unpublished");
+        }
     }
 }

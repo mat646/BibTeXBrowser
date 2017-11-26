@@ -1,29 +1,31 @@
 package com.oop.bibtex.main;
 
 import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
+import javafx.util.Pair;
 
 import java.io.IOException;
+import java.util.Map;
 
 public class Main {
 
     public static void main(String[] args) {
-	    //TODO create Parser and initiate parsing (returns OO representation)
         FileParser fileParser = new FileParser();
-
+        Converter converter = new Converter();
 
         try {
-            BibTeXFile bibTeXFile = fileParser.parse("/usr/docs/file.bib");
+            Pair<Map<String, Map<Attributes, String>>, Map<String, String>> bibTeXIntermediateForm = fileParser.parse("/home/mateusz/Pulpit/xampl.bib");
+
+            BibTeXFile bibTeXFile = converter.convert(bibTeXIntermediateForm);
 
             //TODO create Visitor to pass parameters and print proper values values
             BasicFileVisitor basicFileVisitor = new BasicFileVisitor('|');
 
-            basicFileVisitor.visit(bibTeXFile);
+            bibTeXFile.accept(basicFileVisitor);
 
-        } catch (IOException e) {
+        } catch (IOException | IncompleteFieldsException e) {
             //TODO handle exception
+            System.out.println(e);
         }
-
-
 
 
     }

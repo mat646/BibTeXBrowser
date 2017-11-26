@@ -4,7 +4,10 @@ import java.util.Map;
 
 public abstract class Entry implements BibTeXEntity {
 
-    final protected Map<Attributes, String> records;
+    public static Attributes[] requiredFields;
+    public static Attributes[] optionalFields;
+
+    final public Map<Attributes, String> records;
 
     public Entry(Map<Attributes, String> records) {
         this.records = records;

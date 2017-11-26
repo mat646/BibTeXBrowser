@@ -8,8 +8,8 @@ import java.util.Map;
 
 public class Booklet extends Entry {
 
-    public static final String[] requiredFields = {};
-    public static final String[] optionalFields = {};
+    public static final Attributes[] requiredFields = {};
+    public static final Attributes[] optionalFields = {};
 
     public Booklet(Map<Attributes, String> records) {
         super(records);
