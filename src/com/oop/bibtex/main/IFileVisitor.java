@@ -40,6 +40,8 @@ class BasicFileVisitor implements IFileVisitor {
 
         System.out.println("\n");
 
+        System.out.println(entry.getClass().toString().split("\\.")[5].toUpperCase() + ": " + entry.key + "\n");
+
         for (Attributes elem : required) {
             String value = entry.records.get(elem);
             if (value != null) {

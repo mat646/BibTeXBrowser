@@ -12,8 +12,8 @@ public class Misc extends Entry {
     public static final Attributes[] requiredFields = {};
     public static final Attributes[] optionalFields = {AUTHOR, TITLE, HOWPUBLISHED, MONTH, YEAR, NOTE, KEY};
 
-    public Misc(Map<Attributes, String> records) {
-        super(records);
+    public Misc(Map<Attributes, String> records, String key) {
+        super(records, key);
     }
 
     @Override

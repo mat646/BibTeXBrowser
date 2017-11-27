@@ -11,8 +11,8 @@ public class Book extends Entry {
     public static final Attributes[] requiredFields = {EDITOR, TITLE, PUBLISHER, YEAR};
     public static final Attributes[] optionalFields = {VOLUME, SERIES, ADDRESS, EDITION, MONTH, NOTE, KEY};
 
-    public Book(Map<Attributes, String> records) {
-        super(records);
+    public Book(Map<Attributes, String> records, String key) {
+        super(records, key);
     }
 
     @Override

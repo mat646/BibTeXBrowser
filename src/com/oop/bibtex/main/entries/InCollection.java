@@ -12,8 +12,8 @@ public class InCollection extends Entry {
     public static final Attributes[] requiredFields = {AUTHOR, TITLE, BOOKTITLE, PUBLISHER, YEAR};
     public static final Attributes[] optionalFields = {EDITOR, VOLUME, NUMBER, SERIES, TYPE, CHAPTER, PAGES, ADDRESS, EDITION, MONTH, NOTE, KEY};
 
-    public InCollection(Map<Attributes, String> records) {
-        super(records);
+    public InCollection(Map<Attributes, String> records, String key) {
+        super(records, key);
     }
 
     @Override

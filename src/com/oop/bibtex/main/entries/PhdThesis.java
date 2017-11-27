@@ -12,8 +12,8 @@ public class PhdThesis extends Entry {
     public static final Attributes[] requiredFields = {AUTHOR, TITLE, SCHOOL, YEAR};
     public static final Attributes[] optionalFields = {TYPE, ADDRESS, MONTH, NOTE, KEY};
 
-    public PhdThesis(Map<Attributes, String> records) {
-        super(records);
+    public PhdThesis(Map<Attributes, String> records, String key) {
+        super(records, key);
     }
 
     @Override

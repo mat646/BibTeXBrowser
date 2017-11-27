@@ -12,8 +12,8 @@ public class Manual extends Entry {
     public static final Attributes[] requiredFields = {TITLE};
     public static final Attributes[] optionalFields = {AUTHOR, ORGANIZATION, ADDRESS, EDITION, MONTH, YEAR, NOTE, KEY};
 
-    public Manual(Map<Attributes, String> records) {
-        super(records);
+    public Manual(Map<Attributes, String> records, String key) {
+        super(records, key);
     }
 
     @Override

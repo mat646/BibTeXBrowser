@@ -58,14 +58,10 @@ public class FileParser {
                                     String attribute = attributesMatcher.group(1);
                                     String attributeValue = attributesMatcher.group(2);
 
+                                    String parsedAttributeValue = parseAttributeValue(attributeValue, intermediateForm);
                                     Attributes attr = Attributes.valueOf(attribute.toUpperCase());
 
-                                    //TODO repair
-                                    if (attributeValue.contains("\"") || attributeValue.contains("{")) {
-                                        attributesMap.put(attr, attributeValue.substring(1, attributeValue.length()-1));
-                                    } else {
-                                        attributesMap.put(attr, attributeValue);
-                                    }
+                                    attributesMap.put(attr, parsedAttributeValue);
                                 }
 
                             }
@@ -83,6 +79,28 @@ public class FileParser {
         }
 
         return new Pair(intermediateForm, keyToTypeForm);
+    }
+
+    public String parseAttributeValue(String value, Map<String, Map<Attributes, String>> intermediateForm) {
+
+        String[] elems = value.split("#");
+
+        StringBuilder sb = new StringBuilder();
+        for (String eleme : elems) {
+            String elem = eleme.trim();
+            if ((elem.charAt(0) == '"' && elem.charAt(elem.length()-1) == '"') ||
+                    (elem.charAt(0) == '{' && elem.charAt(elem.length()-1) == '}')) {
+                sb.append(elem.substring(1, elem.length()-1));
+            } else {
+                if (intermediateForm.get(elem) != null) {
+                    sb.append(intermediateForm.get(elem).get(Attributes.STRINGVALUE));
+                } else {
+                    sb.append(elem);
+                }
+            }
+        }
+
+        return sb.toString();
     }
 
 }
@@ -113,59 +131,59 @@ class Converter {
 
             switch (keyToType.get(key).toUpperCase()) {
                 case "ARTICLE":
-                    BibTeXEntity article = ArticleFactory.createEntity(bundleForFactory);
+                    BibTeXEntity article = ArticleFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, article);
                     break;
                 case "BOOK":
-                    BibTeXEntity book = BookFactory.createEntity(bundleForFactory);
+                    BibTeXEntity book = BookFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, book);
                     break;
                 case "BOOKLET":
-                    BibTeXEntity booklet = BookletFactory.createEntity(bundleForFactory);
+                    BibTeXEntity booklet = BookletFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, booklet);
                     break;
                 case "CONFERENCE":
-                    BibTeXEntity conference = ConferenceFactory.createEntity(bundleForFactory);
+                    BibTeXEntity conference = ConferenceFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, conference);
                     break;
                 case "INBOOK":
-                    BibTeXEntity inBook = InBookFactory.createEntity(bundleForFactory);
+                    BibTeXEntity inBook = InBookFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, inBook);
                     break;
                 case "INCOLLECTION":
-                    BibTeXEntity inCollection = InCollectionFactory.createEntity(bundleForFactory);
+                    BibTeXEntity inCollection = InCollectionFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, inCollection);
                     break;
                 case "INPROCEEDINGS":
-                    BibTeXEntity inProceedings = InProceedingsFactory.createEntity(bundleForFactory);
+                    BibTeXEntity inProceedings = InProceedingsFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, inProceedings);
                     break;
                 case "MANUAL":
-                    BibTeXEntity manual = ManualFactory.createEntity(bundleForFactory);
+                    BibTeXEntity manual = ManualFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, manual);
                     break;
                 case "MASTERTHESIS":
-                    BibTeXEntity masterThesis = MasterThesisFactory.createEntity(bundleForFactory);
+                    BibTeXEntity masterThesis = MasterThesisFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, masterThesis);
                     break;
                 case "MISC":
-                    BibTeXEntity misc = MiscFactory.createEntity(bundleForFactory);
+                    BibTeXEntity misc = MiscFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, misc);
                     break;
                 case "PHDTHESIS":
-                    BibTeXEntity phdThesis = PhdThesisFactory.createEntity(bundleForFactory);
+                    BibTeXEntity phdThesis = PhdThesisFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, phdThesis);
                     break;
                 case "PROCEEDINGS":
-                    BibTeXEntity proceedings = ProceedingsFactory.createEntity(bundleForFactory);
+                    BibTeXEntity proceedings = ProceedingsFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, proceedings);
                     break;
                 case "TECHREPORT":
-                    TechReport techReport = TechReportFactory.createEntity(bundleForFactory);
+                    TechReport techReport = TechReportFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, techReport);
                     break;
                 case "UNPUBLISHED":
-                    BibTeXEntity unpublished = UnpublishedFactory.createEntity(bundleForFactory);
+                    BibTeXEntity unpublished = UnpublishedFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, unpublished);
                     break;
                 case "STRING":

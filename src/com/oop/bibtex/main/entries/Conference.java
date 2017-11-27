@@ -12,8 +12,8 @@ public class Conference extends Entry {
     public static final Attributes[] requiredFields = {AUTHOR, TITLE, BOOKTITLE, YEAR};
     public static final Attributes[] optionalFields = {EDITOR, VOLUME, NUMBER, SERIES, PAGES, ADDRESS, MONTH, ORGANIZATION, PUBLISHER, NOTE, KEY};
 
-    public Conference(Map<Attributes, String> records) {
-        super(records);
+    public Conference(Map<Attributes, String> records, String key) {
+        super(records, key);
     }
 
     @Override

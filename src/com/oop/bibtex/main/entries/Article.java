@@ -11,8 +11,8 @@ public class Article extends Entry {
     public static final Attributes[] requiredFields = {AUTHOR, TITLE, JOURNAL, YEAR};
     public static final Attributes[] optionalFields = {VOLUME, NUMBER, PAGES, MONTH, NOTE, KEY};
 
-    public Article(Map<Attributes, String> records) {
-        super(records);
+    public Article(Map<Attributes, String> records, String key) {
+        super(records, key);
     }
 
     @Override

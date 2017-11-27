@@ -11,11 +11,11 @@ interface AbstractEntryFactory {
 
 class ArticleFactory implements AbstractEntryFactory {
 
-    static BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(JOURNAL) != null && records.get(YEAR) != null) {
-            return new Article(records);
+            return new Article(records, key);
         } else {
             throw new IncompleteFieldsException("Article");
         }
@@ -24,12 +24,12 @@ class ArticleFactory implements AbstractEntryFactory {
 
 class BookFactory implements AbstractEntryFactory {
 
-    static BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if ((records.get(AUTHOR) != null || records.get(EDITOR) != null) &&
                 records.get(TITLE) != null && records.get(PUBLISHER) != null &&
                 records.get(YEAR) != null) {
-            return new Book(records);
+            return new Book(records, key);
         } else {
             throw new IncompleteFieldsException("Book");
         }
@@ -38,10 +38,10 @@ class BookFactory implements AbstractEntryFactory {
 
 class BookletFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(TITLE) != null) {
-            return new Booklet(records);
+            return new Booklet(records, key);
         } else {
             throw new IncompleteFieldsException("Booklet");
         }
@@ -50,11 +50,11 @@ class BookletFactory implements AbstractEntryFactory {
 
 class ConferenceFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(BOOKTITLE) != null && records.get(YEAR) != null) {
-            return new Conference(records);
+            return new Conference(records, key);
         } else {
             throw new IncompleteFieldsException("Conference");
         }
@@ -64,12 +64,12 @@ class ConferenceFactory implements AbstractEntryFactory {
 
 class InBookFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if ((records.get(AUTHOR) != null || records.get(EDITOR) != null) && records.get(TITLE) != null &&
                 (records.get(CHAPTER) != null || records.get(PAGES) != null) &&
                 records.get(PUBLISHER) != null && records.get(YEAR) != null) {
-            return new InBook(records);
+            return new InBook(records, key);
         } else {
             throw new IncompleteFieldsException("InBook");
         }
@@ -79,12 +79,12 @@ class InBookFactory implements AbstractEntryFactory {
 
 class InCollectionFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(BOOKTITLE) != null &&
                 records.get(TITLE) != null && records.get(PUBLISHER) != null &&
                 records.get(YEAR) != null) {
-            return new InCollection(records);
+            return new InCollection(records, key);
         } else {
             throw new IncompleteFieldsException("InCollection");
         }
@@ -93,11 +93,11 @@ class InCollectionFactory implements AbstractEntryFactory {
 
 class InProceedingsFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(BOOKTITLE) != null && records.get(YEAR) != null) {
-            return new InProceedings(records);
+            return new InProceedings(records, key);
         } else {
             throw new IncompleteFieldsException("InProceedings");
         }
@@ -106,10 +106,10 @@ class InProceedingsFactory implements AbstractEntryFactory {
 
 class ManualFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(TITLE) != null) {
-            return new Manual(records);
+            return new Manual(records, key);
         } else {
             throw new IncompleteFieldsException("Manual");
         }
@@ -118,11 +118,11 @@ class ManualFactory implements AbstractEntryFactory {
 
 class MasterThesisFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(SCHOOL) != null && records.get(YEAR) != null) {
-            return new MasterThesis(records);
+            return new MasterThesis(records, key);
         } else {
             throw new IncompleteFieldsException("MasterThesis");
         }
@@ -131,10 +131,10 @@ class MasterThesisFactory implements AbstractEntryFactory {
 
 class MiscFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records != null) {
-            return new Misc(records);
+            return new Misc(records, key);
         } else {
             throw new IncompleteFieldsException("Misc");
         }
@@ -143,11 +143,11 @@ class MiscFactory implements AbstractEntryFactory {
 
 class PhdThesisFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(SCHOOL) != null && records.get(YEAR) != null) {
-            return new PhdThesis(records);
+            return new PhdThesis(records, key);
         } else {
             throw new IncompleteFieldsException("PhdThesis");
         }
@@ -156,10 +156,10 @@ class PhdThesisFactory implements AbstractEntryFactory {
 
 class ProceedingsFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(TITLE) != null && records.get(YEAR) != null) {
-            return new Proceedings(records);
+            return new Proceedings(records, key);
         } else {
             throw new IncompleteFieldsException("Proceedings");
         }
@@ -168,11 +168,11 @@ class ProceedingsFactory implements AbstractEntryFactory {
 
 class TechReportFactory implements AbstractEntryFactory {
 
-    static public TechReport createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public TechReport createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(INSTITUTION) != null && records.get(YEAR) != null) {
-            return new TechReport(records);
+            return new TechReport(records, key);
         } else {
             throw new IncompleteFieldsException("TechReport");
         }
@@ -181,11 +181,11 @@ class TechReportFactory implements AbstractEntryFactory {
 
 class UnpublishedFactory implements AbstractEntryFactory {
 
-    static public BibTeXEntity createEntity(Map<Attributes, String> records) throws IncompleteFieldsException {
+    static public BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(NOTE) != null) {
-            return new Unpublished(records);
+            return new Unpublished(records, key);
         } else {
             throw new IncompleteFieldsException("Unpublished");
         }

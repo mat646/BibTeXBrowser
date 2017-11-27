@@ -28,8 +28,7 @@ public class Main {
             bibTeXFile.accept(basicFileVisitor);
 
         } catch (IOException | IncompleteFieldsException e) {
-            //TODO handle exception
-            System.out.println(e);
+            e.printStackTrace();
         }
 
     }

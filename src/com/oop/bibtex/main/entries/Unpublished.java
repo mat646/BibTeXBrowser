@@ -11,8 +11,8 @@ public class Unpublished extends Entry {
     public static final Attributes[] requiredFields = {AUTHOR, TITLE, NOTE};
     public static final Attributes[] optionalFields = {MONTH, YEAR, KEY};
 
-    public Unpublished(Map<Attributes, String> records) {
-        super(records);
+    public Unpublished(Map<Attributes, String> records, String key) {
+        super(records, key);
     }
 
     @Override
