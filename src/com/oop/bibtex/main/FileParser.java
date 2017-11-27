@@ -18,7 +18,7 @@ public class FileParser {
         Map<String, String> keyToTypeForm = new HashMap<>();
         Map<String, Map<Attributes, String>> intermediateForm = new HashMap<>();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
 
             String line;
             while ((line = reader.readLine()) != null) {
@@ -29,7 +29,7 @@ public class FileParser {
                 boolean matches = matcher.matches();
                 if (matches) {
                     String type = matcher.group(1);
-                    String key  = matcher.group(2);
+                    String key = matcher.group(2);
 
                     keyToTypeForm.put(key, type);
 
@@ -38,13 +38,15 @@ public class FileParser {
 
                             Map<Attributes, String> valueMap = new HashMap<>();
                             String[] arr = key.split("=");
-                            valueMap.put(Attributes.STRINGVALUE, arr[1]);
+                            valueMap.put(Attributes.STRINGVALUE, arr[1].substring(1, arr[1].length() - 1));
 
                             intermediateForm.put(arr[0].trim(), valueMap);
                             keyToTypeForm.put(arr[0].trim(), "STRING");
                             break;
-                        case "PREAMBLE": break;
-                        case "COMMENT": break;
+                        case "PREAMBLE":
+                            break;
+                        case "COMMENT":
+                            break;
                         default:
 
                             Map<Attributes, String> attributesMap = new HashMap<>();
@@ -88,9 +90,9 @@ public class FileParser {
         StringBuilder sb = new StringBuilder();
         for (String eleme : elems) {
             String elem = eleme.trim();
-            if ((elem.charAt(0) == '"' && elem.charAt(elem.length()-1) == '"') ||
-                    (elem.charAt(0) == '{' && elem.charAt(elem.length()-1) == '}')) {
-                sb.append(elem.substring(1, elem.length()-1));
+            if ((elem.charAt(0) == '"' && elem.charAt(elem.length() - 1) == '"') ||
+                    (elem.charAt(0) == '{' && elem.charAt(elem.length() - 1) == '}')) {
+                sb.append(elem.substring(1, elem.length() - 1));
             } else {
                 if (intermediateForm.get(elem) != null) {
                     sb.append(intermediateForm.get(elem).get(Attributes.STRINGVALUE));

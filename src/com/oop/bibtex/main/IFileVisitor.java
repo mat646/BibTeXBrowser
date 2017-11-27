@@ -1,26 +1,46 @@
 package com.oop.bibtex.main;
 
 import com.oop.bibtex.main.entries.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public interface IFileVisitor {
 
     void visit(BibTeXFile bibTeXFile);
+
     void visit(StringEntity stringEntity);
+
     void visit(Comment comment);
+
     void visit(Preamble preamble);
+
     void visit(Article article);
+
     void visit(Book book);
+
     void visit(Booklet booklet);
+
     void visit(Conference conference);
+
     void visit(InBook inBook);
+
     void visit(InCollection inCollection);
+
     void visit(InProceedings inProceedings);
+
     void visit(Manual manual);
+
     void visit(MasterThesis masterThesis);
+
     void visit(Misc misc);
+
     void visit(PhdThesis phdThesis);
+
     void visit(Proceedings proceedings);
+
     void visit(TechReport techReport);
+
     void visit(Unpublished unpublished);
 
 }
@@ -28,9 +48,13 @@ public interface IFileVisitor {
 class BasicFileVisitor implements IFileVisitor {
 
     private Character symbol;
+    private ArrayList<String> types;
+    private ArrayList<String> authors;
 
-    BasicFileVisitor(Character symbol) {
+    BasicFileVisitor(Character symbol, ArrayList<String> types, ArrayList<String> authors) {
         this.symbol = symbol;
+        this.types = types;
+        this.authors = authors;
     }
 
     void basicPrint(Entry entry, Attributes[] required, Attributes[] optional) {
@@ -42,17 +66,23 @@ class BasicFileVisitor implements IFileVisitor {
 
         System.out.println(entry.getClass().toString().split("\\.")[5].toUpperCase() + ": " + entry.key + "\n");
 
-        for (Attributes elem : required) {
-            String value = entry.records.get(elem);
-            if (value != null) {
-                System.out.println(elem + ": " + value);
-            }
-        }
+        List<Attributes> requiredAndOptional = new ArrayList<>(Arrays.asList(required));
+        requiredAndOptional.addAll(Arrays.asList(optional));
 
-        for (Attributes elem : optional) {
+        for (Attributes elem : requiredAndOptional) {
             String value = entry.records.get(elem);
             if (value != null) {
-                System.out.println(elem + ": " + value);
+                if (elem == Attributes.AUTHOR) {
+
+                    System.out.println(elem + ":");
+
+                    for (String author : value.split("and ")) {
+                        System.out.println("\t * " + author);
+                    }
+
+                } else {
+                    System.out.println(elem + ": " + value);
+                }
             }
         }
 
@@ -84,7 +114,10 @@ class BasicFileVisitor implements IFileVisitor {
     @Override
     public void visit(Article article) {
 
-        basicPrint(article, Article.requiredFields, Article.optionalFields);
+
+        if (types == null || types.contains("ARTICLE"))
+            if (authors == null || authors.contains(article.records.get(Attributes.AUTHOR)))
+                basicPrint(article, Article.requiredFields, Article.optionalFields);
 
     }
 
@@ -182,7 +215,7 @@ class BasicFileVisitor implements IFileVisitor {
 
 class FileVisitorWithFilters implements IFileVisitor {
 
-    FileVisitorWithFilters(String[] params){
+    FileVisitorWithFilters(String[] params) {
     }
 
     @Override
