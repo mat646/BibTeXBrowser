@@ -1,26 +1,18 @@
-package com.oop.bibtex.main;
+package com.oop.bibtex.main.factories;
 
+import com.oop.bibtex.main.Attributes;
+import com.oop.bibtex.main.BibTeXEntity;
 import com.oop.bibtex.main.entries.*;
 import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
 import java.util.Map;
 import static com.oop.bibtex.main.Attributes.*;
 
-interface AbstractEntryFactory {
+public interface AbstractEntryFactory {
 
 }
 
-class ArticleFactory implements AbstractEntryFactory {
 
-    static BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
-        if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
-                records.get(JOURNAL) != null && records.get(YEAR) != null) {
-            return new Article(records, key);
-        } else {
-            throw new IncompleteFieldsException("Article");
-        }
-    }
-}
 
 class BookFactory implements AbstractEntryFactory {
 

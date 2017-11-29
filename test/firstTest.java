@@ -7,6 +7,8 @@ public class firstTest {
 
         @Test
         void test(){
+
+            //TODO write tests
             assertEquals(10, 10);
         }
 

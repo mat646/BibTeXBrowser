@@ -116,7 +116,7 @@ class BasicFileVisitor implements IFileVisitor {
 
 
         if (types.isEmpty() || types.contains("ARTICLE"))
-            if (authors.isEmpty() || authors.contains(article.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || authors.containsAll(Arrays.asList(article.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(article, Article.requiredFields, Article.optionalFields);
 
     }
@@ -125,7 +125,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(Book book) {
 
         if (types.isEmpty() || types.contains("BOOK"))
-            if (authors.isEmpty() || authors.contains(book.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || (book.records.get(Attributes.AUTHOR) != null && authors.containsAll(Arrays.asList(book.records.get(Attributes.AUTHOR).split("and ")))))
                 basicPrint(book, Book.requiredFields, Book.optionalFields);
 
     }
@@ -134,7 +134,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(Booklet booklet) {
 
         if (types.isEmpty() || types.contains("BOOKLET"))
-            if (authors.isEmpty() || authors.contains(booklet.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || (booklet.records.get(Attributes.AUTHOR) != null && authors.containsAll(Arrays.asList(booklet.records.get(Attributes.AUTHOR).split("and ")))))
                 basicPrint(booklet, Booklet.requiredFields, Booklet.optionalFields);
 
     }
@@ -143,7 +143,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(Conference conference) {
 
         if (types.isEmpty() || types.contains("CONFERENCE"))
-            if (authors.isEmpty() || authors.contains(conference.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || authors.containsAll(Arrays.asList(conference.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(conference, Conference.requiredFields, Conference.optionalFields);
 
     }
@@ -152,7 +152,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(InBook inBook) {
 
         if (types.isEmpty() || types.contains("INBOOK"))
-            if (authors.isEmpty() || authors.contains(inBook.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || authors.containsAll(Arrays.asList(inBook.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(inBook, InBook.requiredFields, InBook.optionalFields);
 
     }
@@ -161,7 +161,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(InCollection inCollection) {
 
         if (types.isEmpty() || types.contains("INCOLLECTION"))
-            if (authors.isEmpty() || authors.contains(inCollection.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || authors.containsAll(Arrays.asList(inCollection.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(inCollection, InCollection.requiredFields, InCollection.optionalFields);
 
     }
@@ -170,7 +170,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(InProceedings inProceedings) {
 
         if (types.isEmpty() || types.contains("INPROCEEDINGS"))
-            if (authors.isEmpty() || authors.contains(inProceedings.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || authors.containsAll(Arrays.asList(inProceedings.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(inProceedings, InProceedings.requiredFields, InProceedings.optionalFields);
 
     }
@@ -179,7 +179,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(Manual manual) {
 
         if (types.isEmpty() || types.contains("MANUAL"))
-            if (authors.isEmpty() || authors.contains(manual.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || (manual.records.get(Attributes.AUTHOR) != null && authors.containsAll(Arrays.asList(manual.records.get(Attributes.AUTHOR).split("and ")))))
                 basicPrint(manual, Manual.requiredFields, Manual.optionalFields);
 
     }
@@ -188,7 +188,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(MasterThesis masterThesis) {
 
         if (types.isEmpty() || types.contains("MASTERTHESIS"))
-            if (authors.isEmpty() || authors.contains(masterThesis.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || authors.containsAll(Arrays.asList(masterThesis.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(masterThesis, MasterThesis.requiredFields, MasterThesis.optionalFields);
 
     }
@@ -197,7 +197,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(Misc misc) {
 
         if (types.isEmpty() || types.contains("MISC"))
-            if (authors.isEmpty() || authors.contains(misc.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || (misc.records.get(Attributes.AUTHOR) != null && authors.containsAll(Arrays.asList(misc.records.get(Attributes.AUTHOR).split("and ")))))
                 basicPrint(misc, Misc.requiredFields, Misc.optionalFields);
 
     }
@@ -206,7 +206,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(PhdThesis phdThesis) {
 
         if (types.isEmpty() || types.contains("PHDTHESIS"))
-            if (authors.isEmpty() || authors.contains(phdThesis.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || authors.containsAll(Arrays.asList(phdThesis.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(phdThesis, PhdThesis.requiredFields, PhdThesis.optionalFields);
 
     }
@@ -215,7 +215,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(Proceedings proceedings) {
 
         if (types.isEmpty() || types.contains("PROCEEDINGS"))
-            if (authors.isEmpty() || authors.contains(proceedings.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || (proceedings.records.get(Attributes.AUTHOR) != null && authors.containsAll(Arrays.asList(proceedings.records.get(Attributes.AUTHOR).split("and ")))))
                 basicPrint(proceedings, Proceedings.requiredFields, Proceedings.optionalFields);
 
     }
@@ -224,7 +224,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(TechReport techReport) {
 
         if (types.isEmpty() || types.contains("TECHREPORT"))
-            if (authors.isEmpty() || authors.contains(techReport.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() ||  authors.containsAll(Arrays.asList(techReport.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(techReport, TechReport.requiredFields, TechReport.optionalFields);
 
     }
@@ -233,7 +233,7 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(Unpublished unpublished) {
 
         if (types.isEmpty() || types.contains("UNPUBLISHED"))
-            if (authors.isEmpty() || authors.contains(unpublished.records.get(Attributes.AUTHOR)))
+            if (authors.isEmpty() || authors.containsAll(Arrays.asList(unpublished.records.get(Attributes.AUTHOR).split("and "))))
                 basicPrint(unpublished, Unpublished.requiredFields, Unpublished.optionalFields);
 
     }

@@ -2,6 +2,8 @@ package com.oop.bibtex.main;
 
 import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
 import com.oop.bibtex.main.exceptions.IncompleteOptionsException;
+import com.oop.bibtex.main.parserComponents.Converter;
+import com.oop.bibtex.main.parserComponents.FileParser;
 import javafx.util.Pair;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.Map;
 public class Main {
 
     //-p --path -t --types -a --authors -s --symbol
-    static ArrayList<String> options = new ArrayList<>();
+    private static ArrayList<String> options = new ArrayList<>();
     static {
         options.add("-s");
         options.add("--symbol");
@@ -56,7 +58,7 @@ public class Main {
                 case "--authors":
                     for (;i < args.length-1; i++) {
                         if (!options.contains(args[i+1])) {
-                            authors.add(args[i+1]);
+                            authors.add(args[i+1].replace(",", " "));
                         }
                     }
                     break;
