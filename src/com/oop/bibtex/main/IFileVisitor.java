@@ -115,8 +115,8 @@ class BasicFileVisitor implements IFileVisitor {
     public void visit(Article article) {
 
 
-        if (types == null || types.contains("ARTICLE"))
-            if (authors == null || authors.contains(article.records.get(Attributes.AUTHOR)))
+        if (types.isEmpty() || types.contains("ARTICLE"))
+            if (authors.isEmpty() || authors.contains(article.records.get(Attributes.AUTHOR)))
                 basicPrint(article, Article.requiredFields, Article.optionalFields);
 
     }
@@ -124,91 +124,117 @@ class BasicFileVisitor implements IFileVisitor {
     @Override
     public void visit(Book book) {
 
-        basicPrint(book, Book.requiredFields, Book.optionalFields);
+        if (types.isEmpty() || types.contains("BOOK"))
+            if (authors.isEmpty() || authors.contains(book.records.get(Attributes.AUTHOR)))
+                basicPrint(book, Book.requiredFields, Book.optionalFields);
 
     }
 
     @Override
     public void visit(Booklet booklet) {
 
-        basicPrint(booklet, Booklet.requiredFields, Booklet.optionalFields);
+        if (types.isEmpty() || types.contains("BOOKLET"))
+            if (authors.isEmpty() || authors.contains(booklet.records.get(Attributes.AUTHOR)))
+                basicPrint(booklet, Booklet.requiredFields, Booklet.optionalFields);
 
     }
 
     @Override
     public void visit(Conference conference) {
 
-        basicPrint(conference, Conference.requiredFields, Conference.optionalFields);
+        if (types.isEmpty() || types.contains("CONFERENCE"))
+            if (authors.isEmpty() || authors.contains(conference.records.get(Attributes.AUTHOR)))
+                basicPrint(conference, Conference.requiredFields, Conference.optionalFields);
 
     }
 
     @Override
     public void visit(InBook inBook) {
 
-        basicPrint(inBook, InBook.requiredFields, InBook.optionalFields);
+        if (types.isEmpty() || types.contains("INBOOK"))
+            if (authors.isEmpty() || authors.contains(inBook.records.get(Attributes.AUTHOR)))
+                basicPrint(inBook, InBook.requiredFields, InBook.optionalFields);
 
     }
 
     @Override
     public void visit(InCollection inCollection) {
 
-        basicPrint(inCollection, InCollection.requiredFields, InCollection.optionalFields);
+        if (types.isEmpty() || types.contains("INCOLLECTION"))
+            if (authors.isEmpty() || authors.contains(inCollection.records.get(Attributes.AUTHOR)))
+                basicPrint(inCollection, InCollection.requiredFields, InCollection.optionalFields);
 
     }
 
     @Override
     public void visit(InProceedings inProceedings) {
 
-        basicPrint(inProceedings, InProceedings.requiredFields, InProceedings.optionalFields);
+        if (types.isEmpty() || types.contains("INPROCEEDINGS"))
+            if (authors.isEmpty() || authors.contains(inProceedings.records.get(Attributes.AUTHOR)))
+                basicPrint(inProceedings, InProceedings.requiredFields, InProceedings.optionalFields);
 
     }
 
     @Override
     public void visit(Manual manual) {
 
-        basicPrint(manual, Manual.requiredFields, Manual.optionalFields);
+        if (types.isEmpty() || types.contains("MANUAL"))
+            if (authors.isEmpty() || authors.contains(manual.records.get(Attributes.AUTHOR)))
+                basicPrint(manual, Manual.requiredFields, Manual.optionalFields);
 
     }
 
     @Override
     public void visit(MasterThesis masterThesis) {
 
-        basicPrint(masterThesis, MasterThesis.requiredFields, MasterThesis.optionalFields);
+        if (types.isEmpty() || types.contains("MASTERTHESIS"))
+            if (authors.isEmpty() || authors.contains(masterThesis.records.get(Attributes.AUTHOR)))
+                basicPrint(masterThesis, MasterThesis.requiredFields, MasterThesis.optionalFields);
 
     }
 
     @Override
     public void visit(Misc misc) {
 
-        basicPrint(misc, Misc.requiredFields, Misc.optionalFields);
+        if (types.isEmpty() || types.contains("MISC"))
+            if (authors.isEmpty() || authors.contains(misc.records.get(Attributes.AUTHOR)))
+                basicPrint(misc, Misc.requiredFields, Misc.optionalFields);
 
     }
 
     @Override
     public void visit(PhdThesis phdThesis) {
 
-        basicPrint(phdThesis, PhdThesis.requiredFields, PhdThesis.optionalFields);
+        if (types.isEmpty() || types.contains("PHDTHESIS"))
+            if (authors.isEmpty() || authors.contains(phdThesis.records.get(Attributes.AUTHOR)))
+                basicPrint(phdThesis, PhdThesis.requiredFields, PhdThesis.optionalFields);
 
     }
 
     @Override
     public void visit(Proceedings proceedings) {
 
-        basicPrint(proceedings, Proceedings.requiredFields, Proceedings.optionalFields);
+        if (types.isEmpty() || types.contains("PROCEEDINGS"))
+            if (authors.isEmpty() || authors.contains(proceedings.records.get(Attributes.AUTHOR)))
+                basicPrint(proceedings, Proceedings.requiredFields, Proceedings.optionalFields);
 
     }
 
     @Override
     public void visit(TechReport techReport) {
 
-        basicPrint(techReport, TechReport.requiredFields, TechReport.optionalFields);
+        if (types.isEmpty() || types.contains("TECHREPORT"))
+            if (authors.isEmpty() || authors.contains(techReport.records.get(Attributes.AUTHOR)))
+                basicPrint(techReport, TechReport.requiredFields, TechReport.optionalFields);
 
     }
 
     @Override
     public void visit(Unpublished unpublished) {
 
-        basicPrint(unpublished, Unpublished.requiredFields, Unpublished.optionalFields);
+        if (types.isEmpty() || types.contains("UNPUBLISHED"))
+            if (authors.isEmpty() || authors.contains(unpublished.records.get(Attributes.AUTHOR)))
+                basicPrint(unpublished, Unpublished.requiredFields, Unpublished.optionalFields);
 
     }
 }
