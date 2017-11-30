@@ -4,11 +4,16 @@ import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
 import com.oop.bibtex.main.exceptions.IncompleteOptionsException;
 import com.oop.bibtex.main.parserComponents.Converter;
 import com.oop.bibtex.main.parserComponents.FileParser;
+import com.oop.bibtex.main.visitors.BasicFileVisitor;
 import javafx.util.Pair;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
+
+/**
+ * @author mateusz
+ */
 public class Main {
 
     //-p --path -t --types -a --authors -s --symbol

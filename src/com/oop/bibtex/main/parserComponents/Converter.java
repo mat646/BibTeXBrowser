@@ -3,7 +3,7 @@ package com.oop.bibtex.main.parserComponents;
 import com.oop.bibtex.main.*;
 import com.oop.bibtex.main.entries.TechReport;
 import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
-import com.oop.bibtex.main.factories.ArticleFactory;
+import com.oop.bibtex.main.factories.*;
 import javafx.util.Pair;
 
 import java.util.HashMap;

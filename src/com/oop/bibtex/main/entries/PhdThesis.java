@@ -2,7 +2,7 @@ package com.oop.bibtex.main.entries;
 
 import com.oop.bibtex.main.Attributes;
 import com.oop.bibtex.main.Entry;
-import com.oop.bibtex.main.IFileVisitor;
+import com.oop.bibtex.main.visitors.IFileVisitor;
 import static com.oop.bibtex.main.Attributes.*;
 
 import java.util.Map;

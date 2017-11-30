@@ -1,5 +1,7 @@
 package com.oop.bibtex.main;
 
+import com.oop.bibtex.main.visitors.IFileVisitor;
+
 public class StringEntity implements BibTeXEntity {
 
     private String key;

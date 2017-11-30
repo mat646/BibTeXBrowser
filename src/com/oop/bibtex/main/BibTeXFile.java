@@ -1,5 +1,7 @@
 package com.oop.bibtex.main;
 
+import com.oop.bibtex.main.visitors.IFileVisitor;
+
 import java.util.HashSet;
 import java.util.Set;
 

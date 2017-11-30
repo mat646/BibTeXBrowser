@@ -1,8 +1,6 @@
 package com.oop.bibtex.main.parserComponents;
 
 import com.oop.bibtex.main.*;
-import com.oop.bibtex.main.entries.TechReport;
-import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
 import com.oop.bibtex.main.names.NameParser;
 import javafx.util.Pair;
 import java.io.BufferedReader;
