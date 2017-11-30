@@ -12,7 +12,9 @@ import java.util.Map;
 
 
 /**
- * @author mateusz
+ *
+ * @author Mateusz Sokol
+ *
  */
 public class Main {
 

@@ -6,7 +6,7 @@ public interface BibTeXEntity {
 
     /**
      *
-     * @param visitor that visits all its components
+     * @param visitor that visits all files components
      */
     void accept(IFileVisitor visitor);
 

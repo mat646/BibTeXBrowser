@@ -11,6 +11,16 @@ import java.util.Map;
 
 public class Converter {
 
+    /**
+     *
+     * Converter converts intermediate form into objective form.
+     *
+     * @param intermediateForm is pair of map of keys and Entry types and map of keys and collection of attributes
+     * @return objective form of file.
+     * @see BibTeXFile for more information.
+     * @throws IncompleteFieldsException in case of incomplete collection of required fields.
+     * @see IncompleteFieldsException
+     */
     public BibTeXFile convert(Pair<Map<String, Map<Attributes, String>>, Map<String, String>> intermediateForm) throws IncompleteFieldsException {
 
         BibTeXFile bibTeXFile = new BibTeXFile();
