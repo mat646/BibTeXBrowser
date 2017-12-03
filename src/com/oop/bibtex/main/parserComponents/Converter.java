@@ -21,7 +21,8 @@ public class Converter {
      * @throws IncompleteFieldsException in case of incomplete collection of required fields.
      * @see IncompleteFieldsException
      */
-    public BibTeXFile convert(Pair<Map<String, Map<Attributes, String>>, Map<String, String>> intermediateForm) throws IncompleteFieldsException {
+    public BibTeXFile convert(Pair<Map<String, Map<Attributes, String>>,
+            Map<String, String>> intermediateForm) throws IncompleteFieldsException {
 
         BibTeXFile bibTeXFile = new BibTeXFile();
 
@@ -93,7 +94,7 @@ public class Converter {
                     bibTeXFile.put(key, proceedings);
                     break;
                 case "TECHREPORT":
-                    TechReport techReport = TechReportFactory.createEntity(bundleForFactory, key);
+                    BibTeXEntity techReport = TechReportFactory.createEntity(bundleForFactory, key);
                     bibTeXFile.put(key, techReport);
                     break;
                 case "UNPUBLISHED":

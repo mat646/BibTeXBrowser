@@ -3,6 +3,9 @@ package com.oop.bibtex.main.visitors;
 import com.oop.bibtex.main.*;
 import com.oop.bibtex.main.entries.*;
 
+/**
+ *  Visitor pattern that allows to add functionality to group of classes without changing their implementation.
+ */
 public interface IFileVisitor {
 
     void visit(BibTeXFile bibTeXFile);

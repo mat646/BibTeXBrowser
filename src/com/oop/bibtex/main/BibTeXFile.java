@@ -13,7 +13,6 @@ public class BibTeXFile implements BibTeXEntity {
 
     }
 
-
     /**
      *
      * @param visitor that visits all its components in {@code elements} set.

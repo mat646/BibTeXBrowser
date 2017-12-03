@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  *
- * @author Mateusz Sokol
+ * @author Mateusz Sokol 3.12.2017
  *
  */
 public class Main {
@@ -31,7 +31,7 @@ public class Main {
         options.add("--authors");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
 
         FileParser fileParser = new FileParser();
         Converter converter = new Converter();
@@ -46,7 +46,8 @@ public class Main {
                 case "-s":
                 case "--symbol":
                     assert i+1 < args.length;
-                    symbol = args[i+1].charAt(0);
+                    if (args[i+1].length()==1)
+                        symbol = args[i+1].charAt(0);
                     break;
                 case "-p":
                 case "--path":
@@ -58,7 +59,7 @@ public class Main {
                     for (;i < args.length-1; i++) {
                         if (!options.contains(args[i+1])) {
                             types.add(args[i+1].toUpperCase());
-                        }
+                        } else break;
                     }
                     break;
                 case "-a":
@@ -66,7 +67,7 @@ public class Main {
                     for (;i < args.length-1; i++) {
                         if (!options.contains(args[i+1])) {
                             authors.add(args[i+1].replace(",", " "));
-                        }
+                        } else break;
                     }
                     break;
             }

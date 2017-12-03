@@ -1,6 +1,7 @@
 package com.oop.bibtex.main.factories;
 
 import com.oop.bibtex.main.Attributes;
+import com.oop.bibtex.main.BibTeXEntity;
 import com.oop.bibtex.main.entries.TechReport;
 import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
 
@@ -10,7 +11,15 @@ import static com.oop.bibtex.main.Attributes.*;
 
 public class TechReportFactory implements AbstractEntryFactory {
 
-    public static TechReport createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
+    /**
+     *
+     * @param records is map of attributes and values.
+     * @param key associated with concrete entry.
+     * @return entry object witch extends BibTeXEntity
+     * @see BibTeXEntity
+     * @throws IncompleteFieldsException when passed attributes don't satisfy all required fields.
+     */
+    public static BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 
         if (records.get(AUTHOR) != null && records.get(TITLE) != null &&
                 records.get(INSTITUTION) != null && records.get(YEAR) != null) {

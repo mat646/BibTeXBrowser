@@ -11,13 +11,13 @@ import static com.oop.bibtex.main.Attributes.*;
 
 public class ArticleFactory implements AbstractEntryFactory {
 
-
     /**
      *
-     * @param records
-     * @param key
-     * @return
-     * @throws IncompleteFieldsException
+     * @param records is map of attributes and values.
+     * @param key associated with concrete entry.
+     * @return entry object witch extends BibTeXEntity
+     * @see BibTeXEntity
+     * @throws IncompleteFieldsException when passed attributes don't satisfy all required fields.
      */
     public static BibTeXEntity createEntity(Map<Attributes, String> records, String key) throws IncompleteFieldsException {
 

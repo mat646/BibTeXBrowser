@@ -13,6 +13,13 @@ import java.util.regex.Pattern;
 
 public class FileParser {
 
+    /**
+     *
+     * @param path to BibTeX file
+     * @return intermediate form of file. First element of pair is map of entry keys and attributes.
+     * Second element is map of entry keys and entry types.
+     * @throws IOException is thrown when FileReader can't open or read file.
+     */
     public Pair<Map<String, Map<Attributes, String>>, Map<String, String>> parse(String path) throws IOException {
 
         Map<String, String> keyToTypeForm = new HashMap<>();
@@ -88,6 +95,12 @@ public class FileParser {
         return new Pair(intermediateForm, keyToTypeForm);
     }
 
+    /**
+     *
+     * @param value is raw stream with character constrains.
+     * @param intermediateForm is map of entry keys and their attributes.
+     * @return is string with character constrains.
+     */
     public String parseAttributeValue(String value, Map<String, Map<Attributes, String>> intermediateForm) {
 
         String[] elements = value.split("#");
