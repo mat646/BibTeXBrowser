@@ -27,7 +27,7 @@ public class UnpublishedFactory implements AbstractEntryFactory {
                 records.get(NOTE) != null) {
             return new Unpublished(records, key);
         } else {
-            throw new IncompleteFieldsException("Unpublished");
+            throw new IncompleteFieldsException("Unpublished" + "\nKey: " + key);
         }
     }
 }

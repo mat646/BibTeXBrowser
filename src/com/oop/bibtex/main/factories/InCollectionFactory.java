@@ -27,7 +27,7 @@ public class InCollectionFactory implements AbstractEntryFactory {
                 records.get(YEAR) != null) {
             return new InCollection(records, key);
         } else {
-            throw new IncompleteFieldsException("InCollection");
+            throw new IncompleteFieldsException("InCollection" + "\nKey: " + key);
         }
     }
 }

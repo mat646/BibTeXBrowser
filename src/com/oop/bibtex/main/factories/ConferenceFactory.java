@@ -25,7 +25,7 @@ public class ConferenceFactory implements AbstractEntryFactory {
                 records.get(BOOKTITLE) != null && records.get(YEAR) != null) {
             return new Conference(records, key);
         } else {
-            throw new IncompleteFieldsException("Conference");
+            throw new IncompleteFieldsException("Conference" + "\nKey: " + key);
         }
 
     }

@@ -2,12 +2,13 @@ package com.oop.bibtex.main.visitors;
 
 import com.oop.bibtex.main.*;
 import com.oop.bibtex.main.entries.*;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Visitor pattern for printing BibTexFile on screen.
+ */
 public class BasicFileVisitor implements IFileVisitor {
 
     private Character symbol;

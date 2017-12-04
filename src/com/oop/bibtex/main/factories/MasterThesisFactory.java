@@ -25,7 +25,7 @@ public class MasterThesisFactory implements AbstractEntryFactory {
                 records.get(SCHOOL) != null && records.get(YEAR) != null) {
             return new MasterThesis(records, key);
         } else {
-            throw new IncompleteFieldsException("MasterThesis");
+            throw new IncompleteFieldsException("MasterThesis" + "\nKey: " + key);
         }
     }
 }

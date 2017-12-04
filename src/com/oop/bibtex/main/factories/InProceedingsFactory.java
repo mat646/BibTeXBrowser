@@ -25,7 +25,7 @@ public class InProceedingsFactory implements AbstractEntryFactory {
                 records.get(BOOKTITLE) != null && records.get(YEAR) != null) {
             return new InProceedings(records, key);
         } else {
-            throw new IncompleteFieldsException("InProceedings");
+            throw new IncompleteFieldsException("InProceedings" + "\nKey: " + key);
         }
     }
 }

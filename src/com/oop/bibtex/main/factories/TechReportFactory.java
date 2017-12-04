@@ -25,7 +25,7 @@ public class TechReportFactory implements AbstractEntryFactory {
                 records.get(INSTITUTION) != null && records.get(YEAR) != null) {
             return new TechReport(records, key);
         } else {
-            throw new IncompleteFieldsException("TechReport");
+            throw new IncompleteFieldsException("TechReport" + "\nKey: " + key);
         }
     }
 }

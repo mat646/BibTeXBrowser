@@ -24,7 +24,7 @@ public class BookletFactory implements AbstractEntryFactory {
         if (records.get(TITLE) != null) {
             return new Booklet(records, key);
         } else {
-            throw new IncompleteFieldsException("Booklet");
+            throw new IncompleteFieldsException("Booklet" + "\nKey: " + key);
         }
     }
 }

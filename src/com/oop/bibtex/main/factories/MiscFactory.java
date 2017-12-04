@@ -22,7 +22,7 @@ public class MiscFactory implements AbstractEntryFactory {
         if (records != null) {
             return new Misc(records, key);
         } else {
-            throw new IncompleteFieldsException("Misc");
+            throw new IncompleteFieldsException("Misc" + "\nKey: " + key);
         }
     }
 }

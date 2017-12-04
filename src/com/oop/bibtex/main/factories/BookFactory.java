@@ -25,7 +25,7 @@ public class BookFactory implements AbstractEntryFactory {
                 records.get(YEAR) != null) {
             return new Book(records, key);
         } else {
-            throw new IncompleteFieldsException("Book");
+            throw new IncompleteFieldsException("Book" + "\nKey: " + key);
         }
     }
 }

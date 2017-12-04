@@ -24,7 +24,7 @@ public class ManualFactory implements AbstractEntryFactory {
         if (records.get(TITLE) != null) {
             return new Manual(records, key);
         } else {
-            throw new IncompleteFieldsException("Manual");
+            throw new IncompleteFieldsException("Manual" + "\nKey: " + key);
         }
     }
 }

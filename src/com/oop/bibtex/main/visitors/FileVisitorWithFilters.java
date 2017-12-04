@@ -6,6 +6,9 @@ import com.oop.bibtex.main.Preamble;
 import com.oop.bibtex.main.StringEntity;
 import com.oop.bibtex.main.entries.*;
 
+/**
+ * UNUSED
+ */
 public class FileVisitorWithFilters implements IFileVisitor {
 
     FileVisitorWithFilters(String[] params) {

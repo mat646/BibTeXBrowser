@@ -9,7 +9,7 @@ import static com.oop.bibtex.main.Attributes.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class FactoryTest {
+class FactoryTest {
 
     @Test
     void ArticleFactoryTest() throws IncompleteFieldsException{

@@ -25,7 +25,7 @@ public class PhdThesisFactory implements AbstractEntryFactory {
                 records.get(SCHOOL) != null && records.get(YEAR) != null) {
             return new PhdThesis(records, key);
         } else {
-            throw new IncompleteFieldsException("PhdThesis");
+            throw new IncompleteFieldsException("PhdThesis" + "\nKey: " + key);
         }
     }
 }

@@ -11,6 +11,11 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * {@code FileParser} reads from file and parses into intermediate form of (key -> attributes) maps.
+ * @see Attributes
+ */
+
 public class FileParser {
 
     /**

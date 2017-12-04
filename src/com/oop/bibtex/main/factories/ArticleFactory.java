@@ -25,7 +25,7 @@ public class ArticleFactory implements AbstractEntryFactory {
                 records.get(JOURNAL) != null && records.get(YEAR) != null) {
             return new Article(records, key);
         } else {
-            throw new IncompleteFieldsException("Article");
+            throw new IncompleteFieldsException("Article" + "\nKey: " + key);
         }
     }
 }

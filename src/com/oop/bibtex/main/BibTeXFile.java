@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class BibTeXFile implements BibTeXEntity {
 
-    Set<BibTeXEntity> elements = new HashSet<>();
+    public Set<BibTeXEntity> elements = new HashSet<>();
 
     public BibTeXFile() {
 
