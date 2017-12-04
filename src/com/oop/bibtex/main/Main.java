@@ -16,6 +16,24 @@ import java.util.Map;
  *
  * @author Mateusz Sokol 3.12.2017
  *
+ *
+ * Exemplary program arguments:
+ *
+ *      -p /home/mateusz/Pulpit/xampl.bib -s +
+ *
+ *      -p /home/mateusz/Pulpit/xampl.bib -s + -a L[eslie],A.,Aamport
+ *
+ *      -p /home/mateusz/Pulpit/xampl.bib -s + -t book -a Donald,E.,Knuth
+ *
+ *      -p /home/mateusz/Pulpit/xampl.bib -s + -t inproceedings -a Alfred,V.,Oaho Jeffrey,D.,Ullman
+ *
+ *      -p /home/mateusz/Pulpit/xampl.bib -s + -t book article
+ *
+ *      -p /home/mateusz/Pulpit/xampl.bib -s + -a {\\"{U}}nderwood,Ulrich
+ *
+ *      -p /home/mateusz/Pulpit/xampl.bib -s + -a Ulrich,{\\"{U}}nderwood
+ *
+ *
  */
 public class Main {
 
