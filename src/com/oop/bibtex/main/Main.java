@@ -2,6 +2,7 @@ package com.oop.bibtex.main;
 
 import com.oop.bibtex.main.exceptions.IncompleteFieldsException;
 import com.oop.bibtex.main.exceptions.IncompleteOptionsException;
+import com.oop.bibtex.main.names.NameParser;
 import com.oop.bibtex.main.parserComponents.Converter;
 import com.oop.bibtex.main.parserComponents.FileParser;
 import com.oop.bibtex.main.visitors.BasicFileVisitor;
@@ -66,7 +67,7 @@ public class Main {
                 case "--authors":
                     for (;i < args.length-1; i++) {
                         if (!options.contains(args[i+1])) {
-                            authors.add(args[i+1].replace(",", " "));
+                            authors.add(NameParser.parseName(args[i+1].replace(",", " ")));
                         } else break;
                     }
                     break;
