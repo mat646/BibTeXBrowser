@@ -33,3 +33,8 @@ Project contains JUnit5 tests for factories.
 
 - [JUnit5](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api/5.0.2)
 - Java8
+
+## External links
+
+- [Summary of BibTeX](http://maverick.inria.fr/~Xavier.Decoret/resources/xdkbibtex/bibtex_summary.html)
+- [BibTeX on Wikipedia](https://en.wikipedia.org/wiki/BibTeX)
