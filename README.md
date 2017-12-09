@@ -10,7 +10,7 @@ Then, based on given arguments, program prints filtered parts. Document can be f
 - Authors
 - Entry types
 
-Exemplary arguments in Main.java
+Exemplary arguments in **Main.java**.
 
 Project shows proper usage of **Visitor** design pattern. It has been used to add 
 filtering functionality to Entries classes without modifying them.
@@ -20,8 +20,14 @@ Project also shows proper usage of **Abstract Factory** design pattern, which al
 
 
 
+### Concept diagram
 
-Project contains JUnit tests for every factory. 
+Diagram shows relations between abstract concepts. It isn't made in any UML standard. 
+
+![Diagram](https://image.ibb.co/eJbUEb/Bib_Te_X_Browser.jpg)
+
+
+Project contains JUnit5 tests for factories. 
 
 ## Used libraries
 
